@@ -46,7 +46,7 @@ class OutdatedSubState extends MusicBeatState
 			"HELLO! Thanks for playing our mod!"
 			+ "\nThis mod is made by Zack, klavier, aarontal,\n gravy, ran, peppy, and sam!"
 			+ "\n\nSpecial Thanks to:\n\n"
-			+ "\nAlanm31, Goldie, xFueg0, and Knave"
+			+ "\nAlanm31, Goldie, xFueg0, LTM-Leo and Knave"
 			+ "\n\nPlease note that the song, unleashed, is made by Atsuover.\nAnd the garcello mod by rageminer and Atsuover.\nAswell as the atsuover mod by atsuover\n"
 			+ "\nNow that thats out of the way, press space to enter!\n",
 			32);
