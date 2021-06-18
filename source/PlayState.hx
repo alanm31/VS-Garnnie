@@ -397,11 +397,12 @@ class PlayState extends MusicBeatState
 				garsmoke = new FlxSprite(0, -290);
 				garsmoke.frames = Paths.getSparrowAtlas('garSmoke');
 				garsmoke.setGraphicSize(Std.int(garsmoke.width * 1.7));
-				garsmoke.alpha = 0.3;
+				//garsmoke.alpha = 0.3;
+				garsmoke.alpha = 0;
 				garsmoke.animation.addByPrefix('garsmoke', "smokey", 13);//smokey
 				garsmoke.animation.play('garsmoke');
 				garsmoke.scrollFactor.set(0.7, 0.7);
-				//add(garsmoke);
+				add(garsmoke);
 
 			}
 			case 'halloween': 
@@ -3489,37 +3490,68 @@ class PlayState extends MusicBeatState
 		}
 		#end
 
-		if (SONG.song.toLowerCase() == 'unleashed')
-		{
-			if (curStep == 317)
-			dad.playAnim('cough', false, false, 24);
-			if (curStep == 576)
-			{
-                //ZACK STUPID
-				new FlxTimer().start(0.1, function(tmr:FlxTimer)
-				{
-				    defaultCamZoom -= 0.04;
-				    if (defaultCamZoom > 0.4)
-				    {
-				    tmr.reset(0.1);
-				    }
-				    else
-				    {
-					    add(garsmoke);
-				    }
-				});
-			}
-			if (curStep == 689)
-			{
-				defaultCamZoom = 0.7;
-                camZooming = true;
+//ga song events
+        if (curSong == 'Unleashed')
+        {
+            if (curStep == 315)
+            {
+                camMovement = 0.02;
+                new FlxTimer().start(0.1, function(tmr:FlxTimer)
+                {
+                    defaultCamZoom += 0.04;
+                    if (defaultCamZoom < 1.0)
+                    {
+                        tmr.reset(0.1);
+                    }
+                    else
+                    {
+                        //add(garsmoke);
+                        trace('elcamera do good');
+                    }
+                });
+            }
+            if (curStep == 317)
+            {
+                dad.playAnim('cough');
+            }
+            if (curStep == 318)
+            {
+                camMovement = 0.09;
+                defaultCamZoom = 0.7;
+                //camZooming = false;
+            }
+            if (curStep == 576)
+            {
+                new FlxTimer().start(0.1, function(tmr:FlxTimer)
+                {
+                    defaultCamZoom -= 0.04;
+                    if (defaultCamZoom > 0.4)
+                    {
+                        tmr.reset(0.1);
+                    }
+                    else
+                    {
+                        //add(garsmoke);
+                        garsmoke.alpha = 0.5;
+                    }
+                });
+            }
+            if (curStep == 689)
+            {
+                defaultCamZoom = 1.0;
                 dad.playAnim('coolboy');
-			}
-			if (curStep == 704)
-			{
-				camZooming = false;
-			}
-		}
+            }
+            var coolboy:Bool = false;
+            if (dad.animation.curAnim.name == 'coolboy' && dad.animation.curAnim.finished && !coolboy)
+            {
+                dad.playAnim('coolboy');
+                coolboy = true;
+            }
+            if (curStep == 691)
+            {
+                defaultCamZoom = 0.7;
+            }
+        }
 
 
 		// yes this updates every step.
@@ -3561,50 +3593,6 @@ class PlayState extends MusicBeatState
 			if (curBeat % 2 == 0 && dad.animOffsets.exists('danceRight'))
 				dad.playAnim('danceRight');
 		}
-//ga song events
-        if (curSong.toLowerCase() == 'unleashed')
-        {
-            var funitime:Float = FlxMath.roundDecimal(Conductor.songPosition / 1000, 2);
-            if (funitime == 33)
-            {
-                camZooming = true;
-                dad.playAnim('cough');
-            }
-            if (funitime == 34.3)
-            {
-                camZooming = false;
-            }
-            if (funitime == 61)
-            {
-                //ZACK STUPID
-                new FlxTimer().start(0.1, function(tmr:FlxTimer)
-                {
-                    defaultCamZoom -= 0.04;
-                    if (defaultCamZoom > 0.4)
-                    {
-                        tmr.reset(0.1);
-                    }
-                    else
-                    {
-                        add(garsmoke);
-                    }
-                });
-            }
-            if (funitime == 72)
-            {
-                defaultCamZoom = 0.7;
-                camZooming = true;
-                dad.playAnim('coolboy');
-            }
-            if (funitime == 72.2)
-            {
-                dad.playAnim('coolboy');
-            }
-            if (funitime == 73)
-            {
-                camZooming = false;
-            }
-        }
 
 		if (SONG.notes[Math.floor(curStep / 16)] != null)
 		{
