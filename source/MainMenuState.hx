@@ -338,13 +338,13 @@ class MainMenuState extends MusicBeatState
     var lerpScore:Int = 0;
 	var intendedScore:Int = 0;
 
-    	// USING THESE WEIRD VALUES SO THAT IT DOESNT FLOAT UP
-		sprDifficulty.y = leftArrow.y - 15;
-		intendedScore = Highscore.getWeekScore(curWeek, curDifficulty);
+	// USING THESE WEIRD VALUES SO THAT IT DOESNT FLOAT UP
+	sprDifficulty.y = leftArrow.y - 15;
+	intendedScore = Highscore.getWeekScore(curWeek, curDifficulty);
 
-		#if !switch
-		intendedScore = Highscore.getWeekScore(curWeek, curDifficulty);
-		#end
+	#if !switch
+	intendedScore = Highscore.getWeekScore(curWeek, curDifficulty);
+	#end
 
 	function changeItem(huh:Int = 0)
 	{
