@@ -12,6 +12,9 @@ import flixel.addons.transition.FlxTransitionableState;
 import flixel.addons.ui.FlxUIState;
 import flixel.math.FlxRect;
 import flixel.util.FlxTimer;
+import flixel.tweens.FlxEase;
+import flixel.tweens.FlxTween;
+import flixel.FlxSprite;
 
 class MusicBeatState extends FlxUIState
 {
@@ -33,6 +36,26 @@ class MusicBeatState extends FlxUIState
 			trace('reg ' + transIn.region);
 
 		super.create();
+		var kadeLogo:FlxSprite = new FlxSprite(FlxG.width, 0).loadGraphic(Paths.image('KadeEngineLogo'));
+		kadeLogo.scale.y = 0.3;
+		kadeLogo.scale.x = 0.3;
+		kadeLogo.x -= kadeLogo.frameHeight;
+		kadeLogo.y -= 180;
+		kadeLogo.alpha = 0.8;
+		add(kadeLogo);
+		
+		FlxTween.angle(kadeLogo, kadeLogo.angle, -10, 2, {ease: FlxEase.quartInOut});
+		new FlxTimer().start(2, function(tmr:FlxTimer)
+		{
+			if(kadeLogo.angle == -10) FlxTween.angle(kadeLogo, kadeLogo.angle, 10, 2, {ease: FlxEase.quartInOut});
+			else FlxTween.angle(kadeLogo, kadeLogo.angle, -10, 2, {ease: FlxEase.quartInOut});
+		}, 0);
+		
+		new FlxTimer().start(0.8, function(tmr:FlxTimer)
+		{
+			if(kadeLogo.alpha == 0.8) FlxTween.tween(kadeLogo, {alpha: 1}, 0.8, {ease: FlxEase.quartInOut});
+			else FlxTween.tween(kadeLogo, {alpha: 0.8}, 0.8, {ease: FlxEase.quartInOut});
+		}, 0);
 	}
 
 
