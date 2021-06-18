@@ -155,17 +155,17 @@ class Character extends FlxSprite
 				animation.addByPrefix('singLEFT', 'Garnnie sing note LET0', 24);
 				animation.addByPrefix('singLEFT-alt', 'Garnnie sing note LET alt', 24);
 
-				addOffset('idle');
-				addOffset('cough');
-				addOffset('coolboy');
-				addOffset("singUP", 0, 0);
-				addOffset("singRIGHT", 0, 0);
-				addOffset("singLEFT", 0, 0);
-				addOffset("singDOWN", 0, 0);
-				addOffset("singUP-alt", 0, 0);
+				addOffset("idle", 0, 0);
+				addOffset("cough", 0, -19);
+				addOffset("coolboy", 0, -2);
+				addOffset("singUP", 0, -3);
+				addOffset("singRIGHT", -10, 2);
+				addOffset("singLEFT", 11, -9);
+				addOffset("singDOWN", 0, -20);
+				addOffset("singUP-alt", 0, -1);
 				addOffset("singRIGHT-alt", 0, 0);
-				addOffset("singLEFT-alt", 0, 0);
-				addOffset("singDOWN-alt", 0, 0);
+				addOffset("singLEFT-alt", 11, -9);
+				addOffset("singDOWN-alt", 0, -20);
 
 				playAnim('idle');
 			case 'spooky':
