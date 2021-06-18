@@ -882,6 +882,8 @@ class PlayState extends MusicBeatState
 				boyfriend.y += 220;
 				gf.x += 180;
 				gf.y += 300;
+			case 'atsuisland':
+			    dad.y += 50;//if he still flies, add more to the value, if that doesnt work. make it -= -Past Zack 
 		}
 
 		add(gf);
