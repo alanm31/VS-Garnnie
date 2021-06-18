@@ -1,0 +1,147 @@
+ÿþ<?xml version="1.0" encoding="UTF-16"?>
+<TextureAtlas imagePath="Garnnie_assets.png">
+	<!-- Created with Adobe Flash CS6 version 12.0.0.481 -->
+	<!-- http://www.adobe.com/products/flash.html -->
+	<SubTexture name="Garnnie Simg Note RIGHT0000" x="0" y="0" width="373" height="692"/>
+	<SubTexture name="Garnnie Simg Note RIGHT0001" x="0" y="0" width="373" height="692"/>
+	<SubTexture name="Garnnie Simg Note RIGHT0002" x="373" y="0" width="373" height="692"/>
+	<SubTexture name="Garnnie Simg Note RIGHT0003" x="746" y="0" width="373" height="692"/>
+	<SubTexture name="Garnnie Simg Note RIGHT0004" x="746" y="0" width="373" height="692"/>
+	<SubTexture name="Garnnie Simg Note RIGHT0005" x="1119" y="0" width="373" height="692"/>
+	<SubTexture name="Garnnie Simg Note RIGHT0006" x="1119" y="0" width="373" height="692"/>
+	<SubTexture name="Garnnie Simg Note RIGHT0007" x="1492" y="0" width="373" height="692"/>
+	<SubTexture name="Garnnie Simg Note RIGHT0008" x="1492" y="0" width="373" height="692"/>
+	<SubTexture name="Garnnie Simg Note RIGHT0009" x="1492" y="0" width="373" height="692"/>
+	<SubTexture name="Garnnie Simg Note RIGHT0010" x="1492" y="0" width="373" height="692"/>
+	<SubTexture name="Garnnie Simg Note RIGHT0011" x="1492" y="0" width="373" height="692"/>
+	<SubTexture name="Garnnie Simg Note RIGHT0012" x="1492" y="0" width="373" height="692"/>
+	<SubTexture name="Garnnie Simg Note RIGHT alt0000" x="1865" y="0" width="394" height="691"/>
+	<SubTexture name="Garnnie Simg Note RIGHT alt0001" x="1865" y="0" width="394" height="691"/>
+	<SubTexture name="Garnnie Simg Note RIGHT alt0002" x="2259" y="0" width="394" height="691"/>
+	<SubTexture name="Garnnie Simg Note RIGHT alt0003" x="2259" y="0" width="394" height="691"/>
+	<SubTexture name="Garnnie Simg Note RIGHT alt0004" x="2259" y="0" width="394" height="691"/>
+	<SubTexture name="Garnnie Simg Note RIGHT alt0005" x="2653" y="0" width="394" height="691"/>
+	<SubTexture name="Garnnie Simg Note RIGHT alt0006" x="2653" y="0" width="394" height="691"/>
+	<SubTexture name="Garnnie Simg Note RIGHT alt0007" x="2653" y="0" width="394" height="691"/>
+	<SubTexture name="Garnnie Sing Note DOWN0000" x="3047" y="0" width="374" height="670"/>
+	<SubTexture name="Garnnie Sing Note DOWN0001" x="3047" y="0" width="374" height="670"/>
+	<SubTexture name="Garnnie Sing Note DOWN0002" x="3421" y="0" width="374" height="670"/>
+	<SubTexture name="Garnnie Sing Note DOWN0003" x="3421" y="0" width="374" height="670"/>
+	<SubTexture name="Garnnie Sing Note DOWN0004" x="0" y="692" width="374" height="670"/>
+	<SubTexture name="Garnnie Sing Note DOWN0005" x="0" y="692" width="374" height="670"/>
+	<SubTexture name="Garnnie Sing Note DOWN0006" x="0" y="692" width="374" height="670"/>
+	<SubTexture name="Garnnie Sing Note DOWN0007" x="374" y="692" width="374" height="670"/>
+	<SubTexture name="Garnnie Sing Note DOWN0008" x="374" y="692" width="374" height="670"/>
+	<SubTexture name="Garnnie Sing Note DOWN0009" x="748" y="692" width="374" height="670"/>
+	<SubTexture name="Garnnie Sing Note DOWN0010" x="748" y="692" width="374" height="670"/>
+	<SubTexture name="Garnnie Sing Note DOWN0011" x="748" y="692" width="374" height="670"/>
+	<SubTexture name="Garnnie Sing Note DOWN alt0000" x="1122" y="692" width="446" height="669"/>
+	<SubTexture name="Garnnie Sing Note DOWN alt0001" x="1122" y="692" width="446" height="669"/>
+	<SubTexture name="Garnnie Sing Note DOWN alt0002" x="1568" y="692" width="446" height="669"/>
+	<SubTexture name="Garnnie Sing Note DOWN alt0003" x="1568" y="692" width="446" height="669"/>
+	<SubTexture name="Garnnie Sing Note DOWN alt0004" x="2014" y="692" width="446" height="669"/>
+	<SubTexture name="Garnnie Sing Note DOWN alt0005" x="2014" y="692" width="446" height="669"/>
+	<SubTexture name="Garnnie Sing Note DOWN alt0006" x="2014" y="692" width="446" height="669"/>
+	<SubTexture name="Garnnie Sing Note DOWN alt0007" x="2014" y="692" width="446" height="669"/>
+	<SubTexture name="Garnnie Sing Note DOWN alt0008" x="2014" y="692" width="446" height="669"/>
+	<SubTexture name="Garnnie Sing Note DOWN alt0009" x="2014" y="692" width="446" height="669"/>
+	<SubTexture name="Garnnie Sing Note DOWN alt0010" x="2014" y="692" width="446" height="669"/>
+	<SubTexture name="Garnnie Sing Note DOWN alt0011" x="2014" y="692" width="446" height="669"/>
+	<SubTexture name="Garnnie Sing cough0000" x="2460" y="692" width="374" height="670"/>
+	<SubTexture name="Garnnie Sing cough0001" x="2460" y="692" width="374" height="670"/>
+	<SubTexture name="Garnnie Sing cough0002" x="2834" y="692" width="374" height="670"/>
+	<SubTexture name="Garnnie Sing cough0003" x="2834" y="692" width="374" height="670"/>
+	<SubTexture name="Garnnie Sing cough0004" x="3208" y="692" width="374" height="670"/>
+	<SubTexture name="Garnnie Sing cough0005" x="3208" y="692" width="374" height="670"/>
+	<SubTexture name="Garnnie Sing cough0006" x="3208" y="692" width="374" height="670"/>
+	<SubTexture name="Garnnie Sing cough0007" x="3582" y="692" width="374" height="670"/>
+	<SubTexture name="Garnnie Sing cough0008" x="3582" y="692" width="374" height="670"/>
+	<SubTexture name="Garnnie Sing cough0009" x="0" y="1362" width="374" height="670"/>
+	<SubTexture name="Garnnie Sing cough0010" x="0" y="1362" width="374" height="670"/>
+	<SubTexture name="Garnnie Sing cough0011" x="0" y="1362" width="374" height="670"/>
+	<SubTexture name="Garnnie Sing note UP0000" x="374" y="1362" width="374" height="687"/>
+	<SubTexture name="Garnnie Sing note UP0001" x="374" y="1362" width="374" height="687"/>
+	<SubTexture name="Garnnie Sing note UP0002" x="748" y="1362" width="374" height="687"/>
+	<SubTexture name="Garnnie Sing note UP0003" x="1122" y="1362" width="374" height="687"/>
+	<SubTexture name="Garnnie Sing note UP0004" x="1496" y="1362" width="374" height="687"/>
+	<SubTexture name="Garnnie Sing note UP0005" x="1496" y="1362" width="374" height="687"/>
+	<SubTexture name="Garnnie Sing note UP0006" x="1870" y="1362" width="374" height="687"/>
+	<SubTexture name="Garnnie Sing note UP0007" x="1870" y="1362" width="374" height="687"/>
+	<SubTexture name="Garnnie Sing note UP0008" x="2244" y="1362" width="374" height="687"/>
+	<SubTexture name="Garnnie Sing note UP0009" x="2244" y="1362" width="374" height="687"/>
+	<SubTexture name="Garnnie Sing note UP0010" x="2244" y="1362" width="374" height="687"/>
+	<SubTexture name="Garnnie Sing note UP0011" x="2244" y="1362" width="374" height="687"/>
+	<SubTexture name="Garnnie Sing note UP0012" x="2244" y="1362" width="374" height="687"/>
+	<SubTexture name="Garnnie Sing note UP alt0000" x="2618" y="1362" width="434" height="685"/>
+	<SubTexture name="Garnnie Sing note UP alt0001" x="2618" y="1362" width="434" height="685"/>
+	<SubTexture name="Garnnie Sing note UP alt0002" x="3052" y="1362" width="434" height="685"/>
+	<SubTexture name="Garnnie Sing note UP alt0003" x="3052" y="1362" width="434" height="685"/>
+	<SubTexture name="Garnnie Sing note UP alt0004" x="3486" y="1362" width="434" height="685"/>
+	<SubTexture name="Garnnie Sing note UP alt0005" x="3486" y="1362" width="434" height="685"/>
+	<SubTexture name="Garnnie Sing note UP alt0006" x="3486" y="1362" width="434" height="685"/>
+	<SubTexture name="Garnnie Sing note UP alt0007" x="3486" y="1362" width="434" height="685"/>
+	<SubTexture name="Garnnie Sing note UP alt0008" x="3486" y="1362" width="434" height="685"/>
+	<SubTexture name="Garnnie Sing note UP alt0009" x="3486" y="1362" width="434" height="685"/>
+	<SubTexture name="Garnnie Sing note UP alt0010" x="3486" y="1362" width="434" height="685"/>
+	<SubTexture name="Garnnie Sing note UP alt0011" x="3486" y="1362" width="434" height="685"/>
+	<SubTexture name="Garnnie idle dance0000" x="0" y="2049" width="374" height="691"/>
+	<SubTexture name="Garnnie idle dance0001" x="0" y="2049" width="374" height="691"/>
+	<SubTexture name="Garnnie idle dance0002" x="374" y="2049" width="374" height="691"/>
+	<SubTexture name="Garnnie idle dance0003" x="374" y="2049" width="374" height="691"/>
+	<SubTexture name="Garnnie idle dance0004" x="748" y="2049" width="374" height="691"/>
+	<SubTexture name="Garnnie idle dance0005" x="748" y="2049" width="374" height="691"/>
+	<SubTexture name="Garnnie idle dance0006" x="0" y="2049" width="374" height="691"/>
+	<SubTexture name="Garnnie idle dance0007" x="0" y="2049" width="374" height="691"/>
+	<SubTexture name="Garnnie idle dance0008" x="1122" y="2049" width="374" height="691"/>
+	<SubTexture name="Garnnie idle dance0009" x="1122" y="2049" width="374" height="691"/>
+	<SubTexture name="Garnnie sing cool boy0000" x="1496" y="2049" width="374" height="689"/>
+	<SubTexture name="Garnnie sing cool boy0001" x="1870" y="2049" width="374" height="689"/>
+	<SubTexture name="Garnnie sing cool boy0002" x="1870" y="2049" width="374" height="689"/>
+	<SubTexture name="Garnnie sing cool boy0003" x="2244" y="2049" width="374" height="689"/>
+	<SubTexture name="Garnnie sing cool boy0004" x="2244" y="2049" width="374" height="689"/>
+	<SubTexture name="Garnnie sing cool boy0005" x="2618" y="2049" width="374" height="689"/>
+	<SubTexture name="Garnnie sing cool boy0006" x="2618" y="2049" width="374" height="689"/>
+	<SubTexture name="Garnnie sing cool boy0007" x="2618" y="2049" width="374" height="689"/>
+	<SubTexture name="Garnnie sing cool boy0008" x="2618" y="2049" width="374" height="689"/>
+	<SubTexture name="Garnnie sing cool boy0009" x="2618" y="2049" width="374" height="689"/>
+	<SubTexture name="Garnnie sing cool boy0010" x="2618" y="2049" width="374" height="689"/>
+	<SubTexture name="Garnnie sing cool boy0011" x="2992" y="2049" width="374" height="689"/>
+	<SubTexture name="Garnnie sing cool boy0012" x="2992" y="2049" width="374" height="689"/>
+	<SubTexture name="Garnnie sing cool boy0013" x="2992" y="2049" width="374" height="689"/>
+	<SubTexture name="Garnnie sing cool boy0014" x="2992" y="2049" width="374" height="689"/>
+	<SubTexture name="Garnnie sing cool boy0015" x="2992" y="2049" width="374" height="689"/>
+	<SubTexture name="Garnnie sing cool boy0016" x="2992" y="2049" width="374" height="689"/>
+	<SubTexture name="Garnnie sing cool boy0017" x="2992" y="2049" width="374" height="689"/>
+	<SubTexture name="Garnnie sing cool boy0018" x="3366" y="2049" width="374" height="689"/>
+	<SubTexture name="Garnnie sing cool boy0019" x="0" y="2740" width="374" height="689"/>
+	<SubTexture name="Garnnie sing cool boy0020" x="0" y="2740" width="374" height="689"/>
+	<SubTexture name="Garnnie sing cool boy0021" x="374" y="2740" width="374" height="689"/>
+	<SubTexture name="Garnnie sing cool boy0022" x="374" y="2740" width="374" height="689"/>
+	<SubTexture name="Garnnie sing cool boy0023" x="374" y="2740" width="374" height="689"/>
+	<SubTexture name="Garnnie sing cool boy0024" x="374" y="2740" width="374" height="689"/>
+	<SubTexture name="Garnnie sing cool boy0025" x="374" y="2740" width="374" height="689"/>
+	<SubTexture name="Garnnie sing cool boy0026" x="748" y="2740" width="374" height="689"/>
+	<SubTexture name="Garnnie sing cool boy0027" x="748" y="2740" width="374" height="689"/>
+	<SubTexture name="Garnnie sing cool boy0028" x="748" y="2740" width="374" height="689"/>
+	<SubTexture name="Garnnie sing cool boy0029" x="748" y="2740" width="374" height="689"/>
+	<SubTexture name="Garnnie sing cool boy0030" x="748" y="2740" width="374" height="689"/>
+	<SubTexture name="Garnnie sing note LET0000" x="1122" y="2740" width="384" height="683"/>
+	<SubTexture name="Garnnie sing note LET0001" x="1506" y="2740" width="384" height="683"/>
+	<SubTexture name="Garnnie sing note LET0002" x="1890" y="2740" width="384" height="683"/>
+	<SubTexture name="Garnnie sing note LET0003" x="1890" y="2740" width="384" height="683"/>
+	<SubTexture name="Garnnie sing note LET0004" x="2274" y="2740" width="384" height="683"/>
+	<SubTexture name="Garnnie sing note LET0005" x="2658" y="2740" width="384" height="683"/>
+	<SubTexture name="Garnnie sing note LET0006" x="2658" y="2740" width="384" height="683"/>
+	<SubTexture name="Garnnie sing note LET0007" x="3042" y="2740" width="384" height="683"/>
+	<SubTexture name="Garnnie sing note LET0008" x="3042" y="2740" width="384" height="683"/>
+	<SubTexture name="Garnnie sing note LET0009" x="3426" y="2740" width="384" height="683"/>
+	<SubTexture name="Garnnie sing note LET0010" x="3426" y="2740" width="384" height="683"/>
+	<SubTexture name="Garnnie sing note LET0011" x="3426" y="2740" width="384" height="683"/>
+	<SubTexture name="Garnnie sing note LET alt0000" x="0" y="3429" width="404" height="683"/>
+	<SubTexture name="Garnnie sing note LET alt0001" x="0" y="3429" width="404" height="683"/>
+	<SubTexture name="Garnnie sing note LET alt0002" x="404" y="3429" width="404" height="683"/>
+	<SubTexture name="Garnnie sing note LET alt0003" x="404" y="3429" width="404" height="683"/>
+	<SubTexture name="Garnnie sing note LET alt0004" x="808" y="3429" width="404" height="683"/>
+	<SubTexture name="Garnnie sing note LET alt0005" x="808" y="3429" width="404" height="683"/>
+	<SubTexture name="Garnnie sing note LET alt0006" x="808" y="3429" width="404" height="683"/>
+</TextureAtlas>
