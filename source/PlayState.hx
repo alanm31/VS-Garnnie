@@ -398,7 +398,7 @@ class PlayState extends MusicBeatState
 		    	add(bgAlley);
 //garsmoke
 				garsmoke = new FlxSprite(0, -290);
-				garsmoke.frames = Paths.getSparrowAtlas('garSmoke');
+				garsmoke.frames = Paths.getSparrowAtlas('ga/garSmoke');
 				garsmoke.setGraphicSize(Std.int(garsmoke.width * 1.7));
 				//garsmoke.alpha = 0.3;
 				garsmoke.alpha = 0;
