@@ -29,20 +29,35 @@ class MainMenuState extends MusicBeatState
 
 	var menuItems:FlxTypedGroup<FlxSprite>;
 
-	#if !switch
+    //if (!beatHardMode)
 	var optionShit:Array<String> = ['story mode', 'options'];
-	#else
-	var optionShit:Array<String> = ['story mode', 'freeplay'];
-	#end
+    //else
+    //var optionShit:Array<String> = ['story mode', 'freeplay', 'options'];
 
 	var newGaming:FlxText;
 	var newGaming2:FlxText;
 	public static var firstStart:Bool = true;
 	public static var nightly:String = "";
-
+    
 	public static var kadeEngineVer:String = "1.5.2" + nightly;
 	public static var gameVer:String = "0.2.7.1";
+	var txtWeekTitle:FlxText;
 
+	//var curWeek:Int = 0;
+
+	var txtTracklist:FlxText;
+
+	var grpWeekText:FlxTypedGroup<MenuItem>;
+	var grpWeekCharacters:FlxTypedGroup<MenuCharacter>;
+
+	var grpLocks:FlxTypedGroup<FlxSprite>;
+
+	var difficultySelectors:FlxGroup;
+	var sprDifficulty:FlxSprite;
+	var leftArrow:FlxSprite;
+	var rightArrow:FlxSprite;
+
+    var ui_tex = Paths.getSparrowAtlas('campaign_menu_UI_assets');
 	var diffic:Int = 1;
 	var difficText:FlxText;
 
@@ -88,13 +103,53 @@ class MainMenuState extends MusicBeatState
 		add(magenta);
 		// magenta.scrollFactor.set();
 
-		difficText = new FlxText(0, 600, 0, "");
-		difficText.setFormat("VCR OSD Mono", 50, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-		difficText.autoSize = false;
-		difficText.alignment = CENTER;
-		difficText.screenCenter(X);
-		difficText.x -= 50
-		add(difficText);
+        txtWeekTitle = new FlxText(FlxG.width * 0.7, 10, 0, "Unleashed ft. atsuover and Rageminer", 32);
+		txtWeekTitle.setFormat("VCR OSD Mono", 32, FlxColor.fromRGB(13, 252, 212), RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.fromRGB(255, 85, 146));
+
+		difficultySelectors = new FlxGroup();
+		add(difficultySelectors);
+
+		trace("Line 124");
+
+        
+
+		leftArrow = new FlxSprite(440, 660);
+		leftArrow.frames = ui_tex;
+		leftArrow.animation.addByPrefix('idle', "arrow left");
+		leftArrow.animation.addByPrefix('press', "arrow push left");
+		leftArrow.animation.play('idle');
+		difficultySelectors.add(leftArrow);
+
+		sprDifficulty = new FlxSprite(leftArrow.x + 130, leftArrow.y);
+		sprDifficulty.frames = ui_tex;
+		sprDifficulty.animation.addByPrefix('easy', 'EASY');
+		sprDifficulty.animation.addByPrefix('normal', 'NORMAL');
+		sprDifficulty.animation.addByPrefix('hard', 'HARD');
+		sprDifficulty.animation.play('easy');
+
+		difficultySelectors.add(sprDifficulty);
+
+		rightArrow = new FlxSprite(sprDifficulty.x + sprDifficulty.width + 50, leftArrow.y);
+		rightArrow.frames = ui_tex;
+		rightArrow.animation.addByPrefix('idle', 'arrow right');
+		rightArrow.animation.addByPrefix('press', "arrow push right", 24, false);
+		rightArrow.animation.play('idle');
+		difficultySelectors.add(rightArrow);
+
+        var bf:FlxSprite = new FlxSprite(sprDifficulty.x + 250, 0);
+        bf.frames = Paths.getSparrowAtlas('campaign_menu_UI_characters');
+        bf.animation.addByPrefix('idle', 'BF idle dance white', 24, true);
+        bf.animation.addByPrefix('confirm', 'BF HEY!!', 24, false);
+        bf.screenCenter(Y);
+        add(bf);
+        bf.animation.play('idle', true);
+
+        var ga:FlxSprite = new FlxSprite (sprDifficulty.x - 250, 0);
+        ga.frames = Paths.getSparrowAtlas('campaign_menu_UI_characters');
+        ga.animation.addByPrefix('idle', 'Dad idle dance BLACK LINE', 24, true);
+        ga.screenCenter(Y);
+        add(ga);
+        ga.animation.play('idle', true);
 
 		menuItems = new FlxTypedGroup<FlxSprite>();
 		add(menuItems);
@@ -166,11 +221,11 @@ class MainMenuState extends MusicBeatState
 			diffic = 2;
 
 			if (diffic == 1)
-			difficText.text = '< NORMAL >';
+			sprDifficulty.animation.play('normal');
 			else if (diffic == 2)
-			difficText.text = '< HARD >';
+			sprDifficulty.animation.play('hard');
 			else if (diffic == 0)
-			difficText.text = '< EASY >';
+			sprDifficulty.animation.play('easy');
 
 		if (!selectedSomethin)
 		{
@@ -203,6 +258,7 @@ class MainMenuState extends MusicBeatState
 				{
 					selectedSomethin = true;
 					FlxG.sound.play(Paths.sound('confirmMenu'));
+                    bf.animation.play('confirm', 'false');
 					
 					if (FlxG.save.data.flashing)
 						FlxFlicker.flicker(magenta, 1.1, 0.15, false);
@@ -241,6 +297,13 @@ class MainMenuState extends MusicBeatState
 			}
 		}
 
+        var daChoice:String = optionShit[curSelected];
+
+        if (daChoice == 'story mode')
+        {
+            add(txtWeekTitle);
+        }
+
 		super.update(elapsed);
 
 		menuItems.forEach(function(spr:FlxSprite)
@@ -265,10 +328,23 @@ class MainMenuState extends MusicBeatState
 				PlayState.storyWeek = 1;
 				trace('CUR WEEK ' + PlayState.storyWeek);
 				LoadingState.loadAndSwitchState(new PlayState());
+            case 'freeplay':
+                FlxG.switchState(new RemixState());
 			case 'options':
 				FlxG.switchState(new OptionsMenu());
 		}
 	}
+
+    var lerpScore:Int = 0;
+	var intendedScore:Int = 0;
+
+    	// USING THESE WEIRD VALUES SO THAT IT DOESNT FLOAT UP
+		sprDifficulty.y = leftArrow.y - 15;
+		intendedScore = Highscore.getWeekScore(curWeek, curDifficulty);
+
+		#if !switch
+		intendedScore = Highscore.getWeekScore(curWeek, curDifficulty);
+		#end
 
 	function changeItem(huh:Int = 0)
 	{
