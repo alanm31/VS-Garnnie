@@ -3503,7 +3503,7 @@ class PlayState extends MusicBeatState
 //ga song events
         if (curSong == 'Unleashed')
         {
-            if (curStep == 315)
+            if (curStep == 310)
             {
                 camMovement = 0.02;
                 new FlxTimer().start(0.1, function(tmr:FlxTimer)
@@ -3552,12 +3552,14 @@ class PlayState extends MusicBeatState
                 dad.playAnim('coolboy');
             }
             var coolboy:Bool = false;
+            var coolboy2:Bool = false;
             if (dad.animation.curAnim.name == 'coolboy' && dad.animation.curAnim.finished && !coolboy)
             {
                 dad.playAnim('coolboy');
                 coolboy = true;
+                coolboy2 = true;
             }
-            if (curStep == 691)
+            if (dad.animation.curAnim.name == 'coolboy' && dad.animation.curAnim.finished && coolboy2)
             {
                 defaultCamZoom = 0.7;
             }
