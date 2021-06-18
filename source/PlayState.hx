@@ -3503,7 +3503,7 @@ class PlayState extends MusicBeatState
 //ga song events
         if (curSong == 'Unleashed')
         {
-            if (curStep == 310)
+            if (curStep == 307)
             {
                 camMovement = 0.02;
                 new FlxTimer().start(0.1, function(tmr:FlxTimer)
