@@ -53,6 +53,7 @@ import lime.utils.Assets;
 import openfl.display.BlendMode;
 import openfl.display.StageQuality;
 import openfl.filters.ShaderFilter;
+import flash.system.System;
 
 #if windows
 import Discord.DiscordClient;
@@ -81,6 +82,7 @@ class PlayState extends MusicBeatState
 	public static var sicks:Int = 0;
     //var timestamp:Float = FlxMath.roundDecimal(Conductor.songPosition / 1000, 2);
     var garsmoke:FlxSprite;
+    var camMovement:Float = 0.09;
 
 	public static var songPosBG:FlxSprite;
 	public static var songPosBar:FlxBar;
@@ -357,6 +359,7 @@ class PlayState extends MusicBeatState
 //sky atsu
 			    var bg:FlxSprite = new FlxSprite(-100).loadGraphic(Paths.image('ga/sky', 'shared'));
 			    bg.scrollFactor.set(0.1, 0.1);
+				bg.setGraphicSize(bg.width * 1);//increase value if too smol -Past Zack
 			    add(bg);
 //city atsu
 				var city:FlxSprite = new FlxSprite(-10).loadGraphic(Paths.image('ga/city', 'shared'));
@@ -428,7 +431,6 @@ class PlayState extends MusicBeatState
 //sky atsu
 					var bg:FlxSprite = new FlxSprite(-100).loadGraphic(Paths.image('philly/sky', 'week3'));
 					bg.scrollFactor.set(0.1, 0.1);
-					bg.setGraphicSize(bg.width * 1.2);//increase value if too smol -Past Zack
 					add(bg);
 //city atsu
 					var city:FlxSprite = new FlxSprite(-10).loadGraphic(Paths.image('philly/city', 'week3'));
@@ -951,7 +953,7 @@ class PlayState extends MusicBeatState
 
 		add(camFollow);
 
-		FlxG.camera.follow(camFollow, LOCKON, 0.04 * (30 / (cast (Lib.current.getChildAt(0), Main)).getFPS()));
+		FlxG.camera.follow(camFollow, LOCKON, camMovement * (30 / (cast (Lib.current.getChildAt(0), Main)).getFPS()));
 		// FlxG.camera.setScrollBounds(0, FlxG.width, 0, FlxG.height);
 		FlxG.camera.zoom = defaultCamZoom;
 		FlxG.camera.focusOn(camFollow.getPosition());
