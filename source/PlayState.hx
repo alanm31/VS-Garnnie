@@ -399,13 +399,13 @@ class PlayState extends MusicBeatState
 //garsmoke
 				garsmoke = new FlxSprite(0, -290);
 				garsmoke.frames = Paths.getSparrowAtlas('ga/garSmoke');
-				garsmoke.setGraphicSize(Std.int(garsmoke.width * 1.7));
+				garsmoke.setGraphicSize(Std.int(garsmoke.width * 2.5));
 				//garsmoke.alpha = 0.3;
 				garsmoke.alpha = 0;
 				garsmoke.animation.addByPrefix('garsmoke', "smokey", 13);//smokey
 				garsmoke.animation.play('garsmoke');
 				garsmoke.scrollFactor.set(0.7, 0.7);
-				add(garsmoke);
+				//add(garsmoke);
 
 			}
 			case 'halloween': 
@@ -897,6 +897,7 @@ class PlayState extends MusicBeatState
 
 		add(dad);
 		add(boyfriend);
+		add(garsmoke);
 		if (loadRep)
 		{
 			FlxG.watch.addQuick('rep rpesses',repPresses);
