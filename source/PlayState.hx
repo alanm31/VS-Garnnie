@@ -401,7 +401,7 @@ class PlayState extends MusicBeatState
 				garsmoke.frames = Paths.getSparrowAtlas('ga/garSmoke');
 				garsmoke.setGraphicSize(Std.int(garsmoke.width * 2.5));
 				//garsmoke.alpha = 0.3;
-				garsmoke.alpha = 0;
+				garsmoke.alpha = 0.2;
 				garsmoke.animation.addByPrefix('garsmoke', "smokey", 13);//smokey
 				garsmoke.animation.play('garsmoke');
 				garsmoke.scrollFactor.set(0.7, 0.7);
@@ -3543,7 +3543,7 @@ class PlayState extends MusicBeatState
                     else
                     {
                         //add(garsmoke);
-                        garsmoke.alpha = 0.5;
+                        garsmoke.alpha += 0.3;
                     }
                 });
             }
