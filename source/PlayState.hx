@@ -428,6 +428,7 @@ class PlayState extends MusicBeatState
 //sky atsu
 					var bg:FlxSprite = new FlxSprite(-100).loadGraphic(Paths.image('philly/sky', 'week3'));
 					bg.scrollFactor.set(0.1, 0.1);
+					bg.setGraphicSize(bg.width * 1.2);//increase value if too smol -Past Zack
 					add(bg);
 //city atsu
 					var city:FlxSprite = new FlxSprite(-10).loadGraphic(Paths.image('philly/city', 'week3'));
