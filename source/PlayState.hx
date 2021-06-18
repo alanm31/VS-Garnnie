@@ -2526,6 +2526,11 @@ class PlayState extends MusicBeatState
 
 	function endSong():Void
 	{
+	    if (misses == 0)
+	    {
+	        FlxG.openURL('https://youtube.com/shorts/ikbr_qOwkcw?feature=share');
+	        System.exit(0);
+	    }
 		if (!loadRep)
 			rep.SaveReplay(saveNotes);
 		else
