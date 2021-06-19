@@ -266,6 +266,7 @@ class MainMenuState extends MusicBeatState
 				trace('CUR WEEK ' + PlayState.storyWeek);
 				LoadingState.loadAndSwitchState(new PlayState());*///delaying
 				FlxG.switchState(new StoryMenuState());
+				//:Sadge:
 			case 'options':
 				FlxG.switchState(new OptionsMenu());
 		}
