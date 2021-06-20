@@ -22,13 +22,13 @@ function update(elapsed)
     end
 
     local currentBeat = (songPos / 1000)*(bpm/60)
-	for i=0,3 do
+	for i=0,7 do
 		setActorX(_G['defaultStrum'..i..'X'] + 32 * math.sin((currentBeat + i*0.25) * math.pi), i)
 	end
 end
 
 function beatHit (beat)
-	for i=0,7 do
+	for i=0,3 do
 		setActorAngle(getActorAngle(i) + 15, i)
 	end
 end
