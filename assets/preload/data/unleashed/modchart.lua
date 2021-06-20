@@ -9,6 +9,10 @@ function update(elapsed)
         setActorY(_G['defaultStrum'..i..'Y'] + 32 * math.cos((currentBeat + i*0.25) * math.pi), i)
         end
 
+        for i=4,7 do
+            setActorX(_G['defaultStrum'..i..'X'],i)
+        end
+
         showOnlyStrums = true;
 
         camHudAngle = camHudAngle + 0.05
@@ -17,15 +21,18 @@ function update(elapsed)
         setActorX(_G['defaultStrum'..i..'X'],i)
         setActorY(_G['defaultStrum'..i..'Y'],i)
         end
+        
+        local currentBeat = (songPos / 1000)*(bpm/60)
+        for i=0,7 do
+		setActorX(_G['defaultStrum'..i..'X'] + 32 * math.sin((currentBeat + i*0.25) * math.pi), i)
+	    end
 
-	showOnlyStrums = false;
+        showOnlyStrums = false
         camHudAngle = 0
     end
 
-    local currentBeat = (songPos / 1000)*(bpm/60)
-	for i=0,7 do
-		setActorX(_G['defaultStrum'..i..'X'] + 32 * math.sin((currentBeat + i*0.25) * math.pi), i)
-	end
+    
+
 end
 
 function beatHit (beat)
@@ -42,6 +49,7 @@ function stepHit (step)
             showOnlyStrums = false
             strumLine1Visible = true
     end
+
     if curStep == 689 and curStep < 710 then
         showOnlyStrums = true
         strumLine1Visible = false
