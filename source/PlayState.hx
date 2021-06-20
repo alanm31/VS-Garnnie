@@ -3554,6 +3554,10 @@ class PlayState extends MusicBeatState
             }
             var coolboy:Bool = false;
             var coolboy2:Bool = false;
+			if (dad.animation.curAnim.name == 'coolboy')
+			{
+				camHUD.alpha -= 0.3;
+			}
             if (dad.animation.curAnim.name == 'coolboy' && dad.animation.curAnim.finished && !coolboy)
             {
                 dad.playAnim('coolboy');
@@ -3563,6 +3567,7 @@ class PlayState extends MusicBeatState
             if (dad.animation.curAnim.name == 'coolboy' && dad.animation.curAnim.finished && coolboy2)
             {
                 defaultCamZoom = 0.7;
+				camHUD.alpha = 1;
             }
         }
 

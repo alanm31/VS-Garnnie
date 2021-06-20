@@ -14,8 +14,6 @@ import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
 import io.newgrounds.NG;
 import lime.app.Application;
-import flixel.text.FlxText;
-
 
 #if windows
 import Discord.DiscordClient;
@@ -29,15 +27,12 @@ class MainMenuState extends MusicBeatState
 
 	var menuItems:FlxTypedGroup<FlxSprite>;
 
-	#if !switch
 	var optionShit:Array<String> = ['story mode', 'options'];
-	#else
-	var optionShit:Array<String> = ['story mode', 'freeplay'];
-	#end
 
 	var newGaming:FlxText;
 	var newGaming2:FlxText;
 	public static var firstStart:Bool = true;
+
 	public static var nightly:String = "";
 
 	public static var kadeEngineVer:String = "1.5.2" + nightly;
@@ -47,6 +42,9 @@ class MainMenuState extends MusicBeatState
 	var difficText:FlxText;
 
 	var magenta:FlxSprite;
+	var thingy:FlxSprite;
+	var arrowRight:FlxSprite;
+	var arrowLeft:FlxSprite;
 	var camFollow:FlxObject;
 	public static var finishedFunnyMove:Bool = false;
 
@@ -88,13 +86,40 @@ class MainMenuState extends MusicBeatState
 		add(magenta);
 		// magenta.scrollFactor.set();
 
-		difficText = new FlxText(0, 600, 0, "");
-		difficText.setFormat("VCR OSD Mono", 50, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-		difficText.autoSize = false;
-		difficText.alignment = CENTER;
-		difficText.screenCenter(X);
-		difficText.x -= 50;
-		add(difficText);
+		var blackThing:FlxSprite = new FlxSprite(570, 550).makeGraphic(305, 70, FlxColor.BLACK);
+		blackThing.alpha = 0.5;
+		blackThing.screenCenter(X);
+		add(blackThing);
+		
+
+		thingy = new FlxSprite(485, 550);
+		thingy.frames = Paths.getSparrowAtlas('campaign_menu_UI_assets');
+		thingy.animation.addByPrefix('normal', 'NORMAL', 24, false);
+		thingy.animation.addByPrefix('hard', 'HARD', 24, false);
+		thingy.animation.addByPrefix('easy', 'EASY', 24, false);
+		add(thingy);
+
+		/*arrowRight = new FlxSprite(thingy.x + 50, thingy.y);
+		arrowRight.frames = Paths.getSparrowAtlas('campaign_menu_UI_assets');
+		arrowRight.animation.addByPrefix('idle', 'arrow right');
+		arrowRight.animation.addByPrefix('press', 'arrow push right');
+		arrowRight.animation.play('idle');
+		add(arrowRight);
+
+		arrowLeft = new FlxSprite(thingy.x - 350, thingy.y);
+		arrowLeft.frames = Paths.getSparrowAtlas('campaign_menu_UI_assets');
+		arrowLeft.animation.addByPrefix('idle', 'arrow left');
+		arrowLeft.animation.addByPrefix('press', 'arrow push left');
+		arrowLeft.animation.play('idle');
+		add(arrowLeft);*/ // arrows delayed asdvahusbdhas
+
+
+
+		var whyareyoustupidppl:FlxText = new FlxText(460, 615, 0, "Press left or right to change difficulty");
+		whyareyoustupidppl.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		add(whyareyoustupidppl);
+
+
 
 		menuItems = new FlxTypedGroup<FlxSprite>();
 		add(menuItems);
@@ -125,13 +150,14 @@ class MainMenuState extends MusicBeatState
 
 		firstStart = false;
 
-		FlxG.camera.follow(camFollow, null, 0.60 * (60 / FlxG.save.data.fpsCap));
 
 		var versionShit:FlxText = new FlxText(5, FlxG.height - 18, 0, gameVer +  (Main.watermarks ? " FNF - " + kadeEngineVer + " Kade Engine" : ""), 12);
 		versionShit.scrollFactor.set();
 		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionShit);
-		
+
+		// NG.core.calls.event.logEvent('swag').send();
+
 
 		if (FlxG.save.data.dfjk)
 			controls.setKeyboardScheme(KeyboardScheme.Solo, true);
@@ -147,30 +173,40 @@ class MainMenuState extends MusicBeatState
 
 	override function update(elapsed:Float)
 	{
+		if (controls.LEFT_P)
+		{
+			diffic -= 1;
+			FlxG.sound.play(Paths.sound('scrollMenu'));
+		}
+
+		if (controls.RIGHT_P)
+		{
+			diffic += 1;
+			FlxG.sound.play(Paths.sound('scrollMenu'));
+		}
+
+		if (diffic > 2)
+		diffic = 0;
+		if (diffic < 0)
+		diffic = 2;
+
+		if (diffic == 2)
+		thingy.animation.play('hard');
+		else if (diffic == 1)
+		thingy.animation.play('normal');
+		else if (diffic == 0)
+		thingy.animation.play('easy');
+
+		if (thingy.animation.curAnim.name == 'hard' || thingy.animation.curAnim.name == 'easy')
+		thingy.x = 485 + 50;
+		else
+		thingy.x = 485;
+
+
 		if (FlxG.sound.music.volume < 0.8)
 		{
 			FlxG.sound.music.volume += 0.5 * FlxG.elapsed;
 		}
-			if (controls.LEFT_P)
-			{
-				diffic -= 1;
-			}
-			if (controls.RIGHT_P)
-			{
-				diffic += 1;
-			}
-
-			if (diffic > 2)
-			diffic = 0;
-			if (diffic < 0)
-			diffic = 2;
-
-			if (diffic == 1)
-			difficText.text = '< NORMAL >';
-			else if (diffic == 2)
-			difficText.text = '< HARD >';
-			else if (diffic == 0)
-			difficText.text = '< EASY >';
 
 		if (!selectedSomethin)
 		{
@@ -185,8 +221,6 @@ class MainMenuState extends MusicBeatState
 				FlxG.sound.play(Paths.sound('scrollMenu'));
 				changeItem(1);
 			}
-
-
 
 			if (controls.BACK)
 			{
@@ -256,17 +290,21 @@ class MainMenuState extends MusicBeatState
 		switch (daChoice)
 		{
 			case 'story mode':
-				trace('el funne');
-				/*var poop = Highscore.formatSong('unleashed', diffic);
+				var poop = Highscore.formatSong('unleashed', diffic);
 				PlayState.SONG = Song.loadFromJson(poop, 'unleashed');
 				PlayState.isStoryMode = false;
 				PlayState.storyDifficulty = diffic;
-
 				PlayState.storyWeek = 1;
+
 				trace('CUR WEEK ' + PlayState.storyWeek);
-				LoadingState.loadAndSwitchState(new PlayState());*///delaying
-				FlxG.switchState(new StoryMenuState());
-				//:Sadge:
+				LoadingState.loadAndSwitchState(new PlayState());
+				//FlxG.switchState(new StoryMenuState());
+				//trace("Story Menu Selected"); No :Troll:
+			case 'freeplay':
+				FlxG.switchState(new FreeplayState());
+
+				trace("Freeplay Menu Selected");
+
 			case 'options':
 				FlxG.switchState(new OptionsMenu());
 		}
