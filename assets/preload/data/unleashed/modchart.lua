@@ -18,6 +18,7 @@ function update(elapsed)
         setActorY(_G['defaultStrum'..i..'Y'],i)
         end
 
+	showOnlyStrums = false;
         camHudAngle = 0
     end
 
