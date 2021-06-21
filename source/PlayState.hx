@@ -983,7 +983,7 @@ class PlayState extends MusicBeatState
         BfBop.frames = Paths.getSparrowAtlas('ga/fastasfuk');
         BfBop.animation.addByPrefix('bop', 'Symbol 1');
         IconBop.animation.play('bop');
-        BfBop.animation.play('bpp');
+        BfBop.animation.play('bop');
         add(BfBop);
         add(IconBop);
 		if (FlxG.save.data.songPosition) // I dont wanna talk about this code :(
