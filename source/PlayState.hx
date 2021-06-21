@@ -111,6 +111,8 @@ class PlayState extends MusicBeatState
 	public static var dad:Character;
 	public static var gf:Character;
 	public static var boyfriend:Boyfriend;
+	public static var anne:FlxSprite;
+	public static var garc:FlxSprite;
 
 	public var notes:FlxTypedGroup<Note>;
 	private var unspawnNotes:Array<Note> = [];
@@ -804,6 +806,8 @@ class PlayState extends MusicBeatState
 
 		gf = new Character(400, 130, gfVersion);
 		gf.scrollFactor.set(0.95, 0.95);
+
+		anne = new FlxSprite()
 
 		dad = new Character(100, 100, SONG.player2);
 
