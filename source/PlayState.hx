@@ -3520,7 +3520,6 @@ class PlayState extends MusicBeatState
             {
                 dad.playAnim('hello');
                 remove(NoLook);
-                defaultCamZoom = 0.7;
             }
             if (curStep == 10)
             {
@@ -3543,6 +3542,10 @@ class PlayState extends MusicBeatState
                         tmr.reset(0.1);
                     }
                 });
+            }
+            if (curStep == 10000)
+            {
+                defaultCamZoom = 0.7;
             }
             if (curStep == 293)
             {
