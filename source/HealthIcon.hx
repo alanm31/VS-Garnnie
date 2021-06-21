@@ -11,7 +11,7 @@ class HealthIcon extends FlxSprite
 
 	public function new(char:String = 'bf', isPlayer:Bool = false)
 	{
-		super();
+		super();//hi future self. you can use a sparrow atlas for icongrid. bye.
 		
 		loadGraphic(Paths.image('iconGrid'), true, 150, 150);
 
