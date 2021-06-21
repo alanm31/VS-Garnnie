@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="el garn.png">
+	<!-- Created with Adobe Animate version 19.2.1.408 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Symbol 10000" x="0" y="0" width="149" height="128" frameX="-1" frameY="0" frameWidth="150" frameHeight="128"/>
+	<SubTexture name="Symbol 10001" x="0" y="0" width="149" height="128" frameX="-1" frameY="0" frameWidth="150" frameHeight="128"/>
+	<SubTexture name="Symbol 10002" x="149" y="0" width="149" height="128" frameX="-1" frameY="0" frameWidth="150" frameHeight="128"/>
+	<SubTexture name="Symbol 10003" x="149" y="0" width="149" height="128" frameX="-1" frameY="0" frameWidth="150" frameHeight="128"/>
+	<SubTexture name="Symbol 10004" x="298" y="0" width="149" height="128" frameX="0" frameY="0" frameWidth="150" frameHeight="128"/>
+	<SubTexture name="Symbol 10005" x="298" y="0" width="149" height="128" frameX="0" frameY="0" frameWidth="150" frameHeight="128"/>
+</TextureAtlas>
