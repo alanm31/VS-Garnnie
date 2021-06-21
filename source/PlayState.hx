@@ -3521,7 +3521,7 @@ class PlayState extends MusicBeatState
                 dad.playAnim('hello');
                 remove(NoLook);
             }
-            if (curStep == 10)
+            if (curStep == 1)
             {
                 new FlxTimer().start(0.1, function(tmr:FlxTimer)
                 {
@@ -3532,7 +3532,7 @@ class PlayState extends MusicBeatState
                     }
                 });
             }
-            if (curStep == 25)
+            if (curStep == 10)
             {
                 new FlxTimer().start(0.1, function(tmr:FlxTimer)
                 {
@@ -3543,7 +3543,7 @@ class PlayState extends MusicBeatState
                     }
                 });
             }
-            if (curStep == 10000)
+            if (curStep == 16)
             {
                 defaultCamZoom = 0.7;
             }
