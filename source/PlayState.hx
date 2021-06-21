@@ -84,6 +84,8 @@ class PlayState extends MusicBeatState
     var garsmoke:FlxSprite;
     var camMovement:Float = 0.09;
     var NoLook:FlxSprite;
+    var IconBop:FlxSprite;
+    var BfBop:FlxSprite;
 
 	public static var songPosBG:FlxSprite;
 	public static var songPosBar:FlxBar;
@@ -974,6 +976,16 @@ class PlayState extends MusicBeatState
 
 		FlxG.fixedTimestep = false;
 
+        IconBop = new FlxSprite(-100, 10);//srupido
+        IconBop.frames = Paths.getSparrowAtlas('ga/elgarnnie');
+        IconBop.animation.addByPrefix('bop', 'Symbol 1');
+        BfBop = new FlxSprite(-100, 10);//srupido
+        BfBop.frames = Paths.getSparrowAtlas('ga/fastasfuk');
+        BfBop.animation.addByPrefix('bop', 'Symbol 1');
+        IconBop.animation.play('bop');
+        BfBop.animation.play('bpp');
+        add(BfBop);
+        add(IconBop);
 		if (FlxG.save.data.songPosition) // I dont wanna talk about this code :(
 			{
 				songPosBG = new FlxSprite(0, 10).loadGraphic(Paths.image('healthBar'));
@@ -2261,6 +2273,8 @@ class PlayState extends MusicBeatState
 					// FlxG.switchState(new PlayState());
 			}
 		}
+
+
 
 		if (health <= 0)
 		{
@@ -3652,6 +3666,11 @@ class PlayState extends MusicBeatState
 				dad.playAnim('danceLeft');
 			if (curBeat % 2 == 0 && dad.animOffsets.exists('danceRight'))
 				dad.playAnim('danceRight');
+		}
+		if (curBeat % 8 == 7)
+		{
+		    IconBop.animation.play('bop');
+		    BfBop.animation.play('bop');
 		}
 
 		if (SONG.notes[Math.floor(curStep / 16)] != null)
