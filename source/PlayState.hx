@@ -810,7 +810,7 @@ class PlayState extends MusicBeatState
 		gf.scrollFactor.set(0.95, 0.95);
 
 		anne = new FlxSprite(200, 100).loadGraphic(Paths.image('ga/annie', 'shared'));
-		garc = new FlxSprite(20, 100).loadGraphic(Paths.image('ga/garcello', 'shared'));
+		garc = new FlxSprite(20, 100).loadGraphic(Paths.image('ga/garcello', 'shared'), true);
 		anne.alpha = 0.3;
 		garc.alpha = 0.3;
 
@@ -982,7 +982,7 @@ class PlayState extends MusicBeatState
         IconBop.cameras = [camHUD];
         BfBop = new FlxSprite(300, 50);//srupido
         BfBop.frames = Paths.getSparrowAtlas('ga/fastasfuk');
-        BfBop.animation.addByPrefix('bop', 'Symbol 1', 12, false);
+        BfBop.animation.addByPrefix('bop', 'Symbol 1', 12, true);
         BfBop.cameras = [camHUD];
         IconBop.animation.play('bop');
         BfBop.animation.play('bop');
