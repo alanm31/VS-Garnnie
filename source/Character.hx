@@ -143,6 +143,7 @@ class Character extends FlxSprite
 				// GA ANIMATION LOADING CODE
 				tex = Paths.getSparrowAtlas('characters/Garnnie_assets', 'shared');
 				frames = tex;
+				animation.addByPrefix('hello', 'Garnnie pre animation', 24)
 				animation.addByPrefix('cough', 'Garnnie Sing cough', 24);
 				animation.addByPrefix('coolboy', 'Garnnie sing cool boy', 24);
 				animation.addByPrefix('idle', 'Garnnie idle dance', 24);
@@ -156,6 +157,7 @@ class Character extends FlxSprite
 				animation.addByPrefix('singLEFT-alt', 'Garnnie sing note LET alt', 24);
 
 				addOffset("idle", 0, 0);
+				addOffset("hello", 0, 0);
 				addOffset("cough", 0, -19);
 				addOffset("coolboy", 0, -2);
 				addOffset("singUP", 0, -3);
@@ -165,7 +167,7 @@ class Character extends FlxSprite
 				addOffset("singUP-alt", 0, -1);
 				addOffset("singRIGHT-alt", 0, 0);
 				addOffset("singLEFT-alt", 11, -9);
-				addOffset("singDOWN-alt", 0, -20);
+				addOffset("singDOWN-alt", 0, -20);//peppy offsets chad
 
 				playAnim('idle');
 			case 'spooky':
