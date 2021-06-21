@@ -153,11 +153,12 @@ class Character extends FlxSprite
 				animation.addByPrefix('singRIGHT-alt', 'Garnnie Simg Note RIGHT alt', 24);
 				animation.addByPrefix('singDOWN', 'Garnnie Sing Note DOWN0', 24);
 				animation.addByPrefix('singDOWN-alt', 'Garnnie Sing Note DOWN alt', 24);
-				animation.addByPrefix('singLEFT', 'Garnnie sing note LET0', 24);
-				animation.addByPrefix('singLEFT-alt', 'Garnnie sing note LET alt', 24);
+				animation.addByPrefix('singLEFT', 'Garnnie sing note LEFT0', 24);
+				animation.addByPrefix('singLEFT-alt', 'Garnnie sing note LEFT alt', 24);
 
 				addOffset("idle", 0, 0);
-				addOffset("hello", 0, 0);
+				addOffset("hello1", 0, 0);
+				addOffset("hello2", 0, 0);
 				addOffset("cough", 0, -19);
 				addOffset("coolboy", 0, -2);
 				addOffset("singUP", 0, -3);
