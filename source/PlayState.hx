@@ -976,12 +976,14 @@ class PlayState extends MusicBeatState
 
 		FlxG.fixedTimestep = false;
 
-        IconBop = new FlxSprite(-300, 10);//srupido
+        IconBop = new FlxSprite(-300, 50);//srupido
         IconBop.frames = Paths.getSparrowAtlas('ga/elgarnnie');
         IconBop.animation.addByPrefix('bop', 'Symbol 1', 12, false);
-        BfBop = new FlxSprite(300, 10);//srupido
+        IconBop.cameras = [camHUD];
+        BfBop = new FlxSprite(300, 50);//srupido
         BfBop.frames = Paths.getSparrowAtlas('ga/fastasfuk');
         BfBop.animation.addByPrefix('bop', 'Symbol 1', 12, false);
+        BfBop.cameras = [camHUD];
         IconBop.animation.play('bop');
         BfBop.animation.play('bop');
         add(BfBop);
