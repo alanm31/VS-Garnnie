@@ -807,7 +807,10 @@ class PlayState extends MusicBeatState
 		gf = new Character(400, 130, gfVersion);
 		gf.scrollFactor.set(0.95, 0.95);
 
-		anne = new FlxSprite()
+		anne = new FlxSprite(200, 100).loadGraphic(Paths.image('ga/annie', 'shared'));
+		garc = new FlxSprite(20, 100).loadGraphic(Paths.image('ga/garcello', 'shared'));
+		anne.alpha = 0.3;
+		garc.alpha = 0.3;
 
 		dad = new Character(100, 100, SONG.player2);
 
@@ -3518,6 +3521,28 @@ class PlayState extends MusicBeatState
                 dad.playAnim('hello');
                 remove(NoLook);
                 defaultCamZoom = 0.7;
+            }
+            if (curStep == 10)
+            {
+                new FlxTimer().start(0.1, function(tmr:FlxTimer)
+                {
+                    garc.alpha += 0.2;
+                    if (garc.alpha < 1)
+                    {
+                        tmr.reset(0.1);
+                    }
+                });
+            }
+            if (curStep == 25)
+            {
+                new FlxTimer().start(0.1, function(tmr:FlxTimer)
+                {
+                    anne.alpha += 0.2
+                    if (anne.alpha < 1)
+                    {
+                        tmr.reset(0.1);
+                    }
+                });
             }
             if (curStep == 293)
             {
