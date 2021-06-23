@@ -27,8 +27,8 @@ class State extends MusicBeatState
 	{
 		super.create();
 		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('youmessedup', 'shared'));
-		bg.scale.x *= 1.55;
-		bg.scale.y *= 1.55;
+		bg.scale.x *= 1.10;
+		bg.scale.y *= 1.10;
 		bg.screenCenter();
 		add(bg);
 		
