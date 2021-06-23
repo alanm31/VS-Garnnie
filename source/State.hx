@@ -9,6 +9,7 @@ import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
 import lime.app.Application;
+import flash.system.System;
 
 class State extends MusicBeatState
 {
@@ -68,10 +69,12 @@ class State extends MusicBeatState
 		{
 			leftState = true;
 			trace('you are going to pay later.');
+			System.exit(0);
 		}
 		if (controls.BACK)
 		{
 		    FlxG.openURL('https://gamebanana.com/mods/296400');
+		    System.exit(0);
 		}
 		super.update(elapsed);
 	}
