@@ -74,8 +74,12 @@ class Main extends Sprite
 		}
 
 		#if !debug
+		#if (html5 || android || ios || mobile)
+		initialState = State;
+		#end
 		initialState = TitleState;
 		#end
+		
 
         #if android
         gameWidth = 1280;
