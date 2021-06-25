@@ -73,7 +73,7 @@ class State extends MusicBeatState
 		}
 		if (controls.BACK)
 		{
-		    FlxG.openURL('https://gamebanana.com/mods/296400');
+		    fancyOpenURL('https://gamebanana.com/mods/296400')
 		    System.exit(0);
 		}
 		super.update(elapsed);
