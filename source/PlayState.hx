@@ -83,9 +83,6 @@ class PlayState extends MusicBeatState
     //var timestamp:Float = FlxMath.roundDecimal(Conductor.songPosition / 1000, 2);
     var garsmoke:FlxSprite;
     var camMovement:Float = 0.09;
-    var NoLook:FlxSprite;
-    var IconBop:FlxSprite;
-    var BfBop:FlxSprite;
 
 	public static var songPosBG:FlxSprite;
 	public static var songPosBar:FlxBar;
@@ -113,8 +110,6 @@ class PlayState extends MusicBeatState
 	public static var dad:Character;
 	public static var gf:Character;
 	public static var boyfriend:Boyfriend;
-	public static var anne:FlxSprite;
-	public static var garc:FlxSprite;
 
 	public var notes:FlxTypedGroup<Note>;
 	private var unspawnNotes:Array<Note> = [];
@@ -402,7 +397,7 @@ class PlayState extends MusicBeatState
 		    	bgAlley.active = false;
 		    	add(bgAlley);
 //garsmoke
-				garsmoke = new FlxSprite(0, -490);
+				garsmoke = new FlxSprite(0, -290);
 				garsmoke.frames = Paths.getSparrowAtlas('ga/garSmoke');
 				garsmoke.setGraphicSize(Std.int(garsmoke.width * 2.5));
 				//garsmoke.alpha = 0.3;
@@ -411,8 +406,6 @@ class PlayState extends MusicBeatState
 				garsmoke.animation.play('garsmoke');
 				garsmoke.scrollFactor.set(0.7, 0.7);
 				//add(garsmoke);
-//black screen
-                NoLook = new FlxSprite(0, 0).makeGraphic(Std.int(FlxG.width * 2), Std.int(FlxG.height * 2), FlxColor.BLACK);
 
 			}
 			case 'halloween': 
@@ -809,11 +802,6 @@ class PlayState extends MusicBeatState
 		gf = new Character(400, 130, gfVersion);
 		gf.scrollFactor.set(0.95, 0.95);
 
-		anne = new FlxSprite(200, 100).loadGraphic(Paths.image('ga/annie', 'shared'));
-		garc = new FlxSprite(20, 100).loadGraphic(Paths.image('ga/garcello', 'shared'), true);
-		anne.alpha = 0.3;
-		garc.alpha = 0.3;
-
 		dad = new Character(100, 100, SONG.player2);
 
 		var camPos:FlxPoint = new FlxPoint(dad.getGraphicMidpoint().x, dad.getGraphicMidpoint().y);
@@ -907,9 +895,8 @@ class PlayState extends MusicBeatState
 		if (curStage == 'limo')
 			add(limo);
 
-		add(boyfriend);
 		add(dad);
-		add(NoLook);
+		add(boyfriend);
 		add(garsmoke);
 		if (loadRep)
 		{
@@ -976,18 +963,6 @@ class PlayState extends MusicBeatState
 
 		FlxG.fixedTimestep = false;
 
-        IconBop = new FlxSprite(-300, 50);//srupido
-        IconBop.frames = Paths.getSparrowAtlas('ga/elgarnnie');
-        IconBop.animation.addByPrefix('bop', 'Symbol 1', 12, false);
-        IconBop.cameras = [camHUD];
-        BfBop = new FlxSprite(300, 50);//srupido
-        BfBop.frames = Paths.getSparrowAtlas('ga/fastasfuk');
-        BfBop.animation.addByPrefix('bop', 'Symbol 1', 12, true);
-        BfBop.cameras = [camHUD];
-        IconBop.animation.play('bop');
-        BfBop.animation.play('bop');
-        add(BfBop);
-        add(IconBop);
 		if (FlxG.save.data.songPosition) // I dont wanna talk about this code :(
 			{
 				songPosBG = new FlxSprite(0, 10).loadGraphic(Paths.image('healthBar'));
@@ -2276,8 +2251,6 @@ class PlayState extends MusicBeatState
 			}
 		}
 
-
-
 		if (health <= 0)
 		{
 			boyfriend.stunned = true;
@@ -3531,45 +3504,9 @@ class PlayState extends MusicBeatState
 //ga song events
         if (curSong == 'Unleashed')
         {
-            defaultCamZoom = 1.2;
-            if (curStep == 1)
-            {
-                dad.playAnim('hello');
-                remove(NoLook);
-            }
-            if (curStep == 1)
-            {
-                new FlxTimer().start(0.1, function(tmr:FlxTimer)
-                {
-                    garc.alpha += 0.2;
-                    if (garc.alpha < 1)
-                    {
-                        tmr.reset(0.1);
-                    }
-                });
-            }
-            if (curStep == 10)
-            {
-                new FlxTimer().start(0.1, function(tmr:FlxTimer)
-                {
-                    anne.alpha += 0.2
-                    if (anne.alpha < 1)
-                    {
-                        tmr.reset(0.1);
-                    }
-                });
-            }
-            if (curStep == 16)
-            {
-                defaultCamZoom = 0.7;
-            }
-            if (curStep == 293)
-            {
-                camMovement = 0.02;
-            }
             if (curStep == 307)
             {
-                //camMovement = 0.02;
+                camMovement = 0.02;
                 new FlxTimer().start(0.1, function(tmr:FlxTimer)
                 {
                     defaultCamZoom += 0.04;
@@ -3599,7 +3536,7 @@ class PlayState extends MusicBeatState
                 new FlxTimer().start(0.1, function(tmr:FlxTimer)
                 {
                     defaultCamZoom -= 0.04;
-                    if (defaultCamZoom > 0.5)
+                    if (defaultCamZoom > 0.4)
                     {
                         tmr.reset(0.1);
                     }
@@ -3615,17 +3552,17 @@ class PlayState extends MusicBeatState
                 defaultCamZoom = 1.0;
                 dad.playAnim('coolboy');
             }
-            if (curStep == 693)
+            var coolboy:Bool = false;
+            var coolboy2:Bool = false;
+            if (dad.animation.curAnim.name == 'coolboy' && dad.animation.curAnim.finished && !coolboy)
             {
                 dad.playAnim('coolboy');
-                new FlxTimer().start(0.3, function(tmr:FlxTimer)
-                {
-                    defaultCamZoom -= 0.04;
-                    if (defaultCamZoom > 0.7)
-                    {
-                        tmr.reset(0.3);
-                    }
-                });
+                coolboy = true;
+                coolboy2 = true;
+            }
+            if (dad.animation.curAnim.name == 'coolboy' && dad.animation.curAnim.finished && coolboy2)
+            {
+                defaultCamZoom = 0.7;
             }
         }
 
@@ -3668,11 +3605,6 @@ class PlayState extends MusicBeatState
 				dad.playAnim('danceLeft');
 			if (curBeat % 2 == 0 && dad.animOffsets.exists('danceRight'))
 				dad.playAnim('danceRight');
-		}
-		if (curBeat % 8 == 7)
-		{
-		    IconBop.animation.play('bop');
-		    BfBop.animation.play('bop');
 		}
 
 		if (SONG.notes[Math.floor(curStep / 16)] != null)
