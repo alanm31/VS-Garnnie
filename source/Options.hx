@@ -221,6 +221,26 @@ class DistractionsAndEffectsOption extends Option
 	}
 }
 
+class ModchartOption extends Option
+{
+	public function new(desc:String)
+	{
+		super();
+		description = desc;
+	}
+	public override function press():Bool
+	{
+		FlxG.save.data.modchart = !FlxG.save.data.modchart;
+		display = updateDisplay();
+		return true;
+	}
+
+	private override function updateDisplay():String
+	{
+		return "LUA MODCHART " + (!FlxG.save.data.modchart ? "off" : "on");
+	}
+}
+
 class ResetButtonOption extends Option
 {
 	public function new(desc:String)

@@ -248,7 +248,10 @@ class PlayState extends MusicBeatState
 			}
 		
 		#if windows
-		executeModchart = FileSystem.exists(Paths.lua(songLowercase  + "/modchart"));
+		if(FlxG.save.data.modchart)
+		    executeModchart = FileSystem.exists(Paths.lua(songLowercase  + "/modchart"));
+		else
+			executeModchart = false; // FORCE disable for people who turned it off
 		#end
 		#if !cpp
 		executeModchart = false; // FORCE disable for non cpp targets
@@ -3557,12 +3560,14 @@ class PlayState extends MusicBeatState
             if (dad.animation.curAnim.name == 'coolboy' && dad.animation.curAnim.finished && !coolboy)
             {
                 dad.playAnim('coolboy');
+				camHUD.alpha -= 0.15;
                 coolboy = true;
                 coolboy2 = true;
             }
             if (dad.animation.curAnim.name == 'coolboy' && dad.animation.curAnim.finished && coolboy2)
             {
                 defaultCamZoom = 0.7;
+				camHUD.alpha = 1;
             }
         }
 
