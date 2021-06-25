@@ -49,6 +49,7 @@ class KadeEngineData
 		#else
 		if (FlxG.save.data.fpsCap > 90 || FlxG.save.data.fpsCap < 60)
 			FlxG.save.data.fpsCap = 60; //baby proof so you can't hard lock ur copy of kade engine
+	    #end
 		
 		if (FlxG.save.data.scrollSpeed == null)
 			FlxG.save.data.scrollSpeed = 1;
@@ -89,6 +90,9 @@ class KadeEngineData
 		if (FlxG.save.data.customStrumLine == null)
 			FlxG.save.data.customStrumLine = 0;
 
+		if (FlxG.save.data.modchart == null)
+			FlxG.save.data.modchart = false;
+		
 		Conductor.recalculateTimings();
 		PlayerSettings.player1.controls.loadKeyBinds();
 		KeyBinds.keyCheck();
