@@ -143,7 +143,7 @@ class Character extends FlxSprite
 				// GA ANIMATION LOADING CODE
 				tex = Paths.getSparrowAtlas('characters/Garnnie_assets', 'shared');
 				frames = tex;
-				animation.addByPrefix('hello', 'Garnnie pre animation', 24, false)
+				animation.addByPrefix('hello', 'Garnnie pre animation', 24, false);
 				animation.addByPrefix('cough', 'Garnnie Sing cough', 24);
 				animation.addByPrefix('coolboy', 'Garnnie sing cool boy', 24);
 				animation.addByPrefix('idle', 'Garnnie idle dance', 24);

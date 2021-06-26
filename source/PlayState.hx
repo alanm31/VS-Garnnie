@@ -138,6 +138,7 @@ class PlayState extends MusicBeatState
 	private var totalNotesHitDefault:Float = 0;
 	private var totalPlayed:Int = 0;
 	private var ss:Bool = false;
+	var raindropsMovin:Bool = false;
 
 
 	private var healthBarBG:FlxSprite;
@@ -173,6 +174,7 @@ class PlayState extends MusicBeatState
 	var upperBoppers:FlxSprite;
 	var bottomBoppers:FlxSprite;
 	var santa:FlxSprite;
+	var rain:FlxSprite;
 
 	var fc:Bool = true;
 
@@ -393,6 +395,8 @@ class PlayState extends MusicBeatState
 
 				trainSound = new FlxSound().loadEmbedded(Paths.sound('train_passesga','shared'));
 				FlxG.sound.list.add(trainSound);
+
+				rain = new FlxSprite(0, -500).loadGraphic(Paths.image('ga/raindrops', 'shared'));
 //alley gar
 			    var bgAlley:FlxSprite = new FlxSprite(-500, -200).loadGraphic(Paths.image('ga/garStageRise', 'shared'));
 		    	bgAlley.antialiasing = true;
@@ -3171,59 +3175,7 @@ class PlayState extends MusicBeatState
 				});
 			}
 
-			public function backgroundVideo(source:String) // for background videos
-				{
-					useVideo = true;
-			
-					FlxG.stage.window.onFocusOut.add(focusOut);
-					FlxG.stage.window.onFocusIn.add(focusIn);
 
-					var ourSource:String = "assets/videos/daWeirdVid/dontDelete.webm";
-					WebmPlayer.SKIP_STEP_LIMIT = 90;
-					var str1:String = "WEBM SHIT"; 
-					webmHandler = new WebmHandler();
-					webmHandler.source(ourSource);
-					webmHandler.makePlayer();
-					webmHandler.webm.name = str1;
-			
-					GlobalVideo.setWebm(webmHandler);
-
-					GlobalVideo.get().source(source);
-					GlobalVideo.get().clearPause();
-					if (GlobalVideo.isWebm)
-					{
-						GlobalVideo.get().updatePlayer();
-					}
-					GlobalVideo.get().show();
-			
-					if (GlobalVideo.isWebm)
-					{
-						GlobalVideo.get().restart();
-					} else {
-						GlobalVideo.get().play();
-					}
-					
-					var data = webmHandler.webm.bitmapData;
-			
-					videoSprite = new FlxSprite(-470,-30).loadGraphic(data);
-			
-					videoSprite.setGraphicSize(Std.int(videoSprite.width * 1.2));
-			
-					remove(gf);
-					remove(boyfriend);
-					remove(dad);
-					add(videoSprite);
-					add(gf);
-					add(boyfriend);
-					add(dad);
-			
-					trace('poggers');
-			
-					if (!songStarted)
-						webmHandler.pause();
-					else
-						webmHandler.resume();
-				}
 
 	function noteMiss(direction:Int = 1, daNote:Note):Void
 	{
@@ -3748,7 +3700,7 @@ class PlayState extends MusicBeatState
 						if (FlxG.random.bool(10) && fastCarCanDrive)
 							fastCarDrive();
 				}
-			case 'philly' | 'atsuisland':
+			case 'philly':
 				if(FlxG.save.data.distractions){
 					if (!trainMoving)
 						trainCooldown += 1;
@@ -3775,6 +3727,53 @@ class PlayState extends MusicBeatState
 						trainStart();
 					}
 				}
+			case 'atsuisland':
+			{
+				if(FlxG.save.data.distractions){
+					if (!trainMoving)
+						trainCooldown += 1;
+	
+					if (curBeat % 4 == 0)
+					{
+						phillyCityLights.forEach(function(light:FlxSprite)
+						{
+							light.visible = false;
+						});
+	
+						curLight = FlxG.random.int(0, phillyCityLights.length - 1);
+	
+						phillyCityLights.members[curLight].visible = true;
+						// phillyCityLights.members[curLight].alpha = 1;
+				}
+
+				}
+
+				if (curBeat % 8 == 4 && FlxG.random.bool(30) && !trainMoving && trainCooldown > 8)
+				{
+					if(FlxG.save.data.distractions){
+						trainCooldown = FlxG.random.int(-4, 0);
+						trainStart();
+					}
+				}
+
+				if (curBeat % 8 == 4 && FlxG.random.bool(75) && !raindropsMovin)
+				{
+					add(rain);
+					FlxG.sound.play(Paths.sound('raindrops', 'shard'));
+					new FlxTimer().start(0.3, function(tmr:FlxTimer){
+						rain.y += 60;
+						raindropsMovin = true;
+
+						if (raindropsMovin)
+						tmr.reset(0.3);
+					});
+
+					new FlxTimer().start(2, function(tmr:FlxTimer){
+						remove(rain);
+						raindropsMovin = false;
+					});
+				}
+			}
 		}
 
 		if (isHalloween && FlxG.random.bool(10) && curBeat > lightningStrikeBeat + lightningOffset)
