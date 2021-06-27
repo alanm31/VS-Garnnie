@@ -292,7 +292,7 @@ class MainMenuState extends MusicBeatState
 			case 'story mode':
 				var poop = Highscore.formatSong('unleashed', diffic);
 				PlayState.SONG = Song.loadFromJson(poop, 'unleashed');
-				PlayState.isStoryMode = false;
+				PlayState.isStoryMode = true;
 				PlayState.storyDifficulty = diffic;
 				PlayState.storyWeek = 1;
 

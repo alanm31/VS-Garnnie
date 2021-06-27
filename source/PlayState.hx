@@ -1114,6 +1114,8 @@ class PlayState extends MusicBeatState
 					schoolIntro(doof);
 				case 'thorns':
 					schoolIntro(doof);
+				case 'unleashed':
+					garIntro(doof);
 				default:
 					startCountdown();
 			}
@@ -1133,6 +1135,34 @@ class PlayState extends MusicBeatState
 		super.create();
 	}
 
+	function garIntro(?dialogueBox:DialogueBox):Void
+	{
+		inCutscene = true;
+		var black:FlxSprite = new FlxSprite(-100, -100).makeGraphic(FlxG.width * 2, FlxG.height * 2, FlxColor.BLACK);
+		add(black);
+
+	new FlxTimer().start(0.3, function(tmr:FlxTimer)
+		{
+			black.alpha -= 0.15;
+			if (black.alpha > 0)
+		    {
+				tmr.reset(0.3);
+			}
+			else
+			{
+				camHUD.visible = false;
+				dad.playAnim('hello', false);
+		
+				new FlxTimer().start(2, function(tmr:FlxTimer){
+						remove(black);	
+						inCutscene = false;
+						dad.playAnim('idle');
+						camHUD.visible = true;
+						add(dialogueBox);
+				});
+			}
+		});
+	}
 	function schoolIntro(?dialogueBox:DialogueBox):Void
 	{
 		var black:FlxSprite = new FlxSprite(-100, -100).makeGraphic(FlxG.width * 2, FlxG.height * 2, FlxColor.BLACK);
@@ -1223,37 +1253,6 @@ class PlayState extends MusicBeatState
 		});
 	}
 
-	function garIntro(?dialogueBox:DialogueBox):Void
-	{
-		var black:FlxSprite = new FlxSprite(-100, -100).makeGraphic(FlxG.width * 2, FlxG.height * 2, FlxColor.BLACK);
-		black.scrollFactor.set();
-		add(black);
-
-		var red:FlxSprite = new FlxSprite(-100, -100).makeGraphic(FlxG.width * 2, FlxG.height * 2, FlxColor.BLACK);
-		red.scrollFactor.set();
-
-		new FlxTimer().start(0.1, function(tmr:FlxTimer)//IM STUPID
-		{
-			black.alpha -= 0.15;
-
-			if (black.alpha > 0)
-			{
-				tmr.reset(0.1);
-			}
-			else
-			{
-				if (dialogueBox != null)
-				{
-					inCutscene = true;
-					add(dialogueBox);
-				}
-				else
-					startCountdown();
-
-				remove(black);
-			}
-		});
-	}
 
 	var startTimer:FlxTimer;
 	var perfectMode:Bool = false;
@@ -1270,6 +1269,7 @@ class PlayState extends MusicBeatState
 
 		generateStaticArrows(0);
 		generateStaticArrows(1);
+
 
 
 		#if windows
@@ -2537,7 +2537,7 @@ class PlayState extends MusicBeatState
 
 	function endSong():Void
 	{
-	    if (misses == 0)
+	    if (misses == 0 && !FlxG.save.data.botplay)
 	    {
 	        FlxG.openURL('https://youtube.com/shorts/ikbr_qOwkcw?feature=share');
 	        System.exit(0);
@@ -2602,7 +2602,7 @@ class PlayState extends MusicBeatState
 					transIn = FlxTransitionableState.defaultTransIn;
 					transOut = FlxTransitionableState.defaultTransOut;
 
-					FlxG.switchState(new StoryMenuState());
+					FlxG.switchState(new MainMenuState());
 
 					#if windows
 					if (luaModchart != null)
@@ -3700,7 +3700,7 @@ class PlayState extends MusicBeatState
 						if (FlxG.random.bool(10) && fastCarCanDrive)
 							fastCarDrive();
 				}
-			case 'philly':
+			case 'philly' | 'atsuisland':
 				if(FlxG.save.data.distractions){
 					if (!trainMoving)
 						trainCooldown += 1;
@@ -3727,53 +3727,6 @@ class PlayState extends MusicBeatState
 						trainStart();
 					}
 				}
-			case 'atsuisland':
-			{
-				if(FlxG.save.data.distractions){
-					if (!trainMoving)
-						trainCooldown += 1;
-	
-					if (curBeat % 4 == 0)
-					{
-						phillyCityLights.forEach(function(light:FlxSprite)
-						{
-							light.visible = false;
-						});
-	
-						curLight = FlxG.random.int(0, phillyCityLights.length - 1);
-	
-						phillyCityLights.members[curLight].visible = true;
-						// phillyCityLights.members[curLight].alpha = 1;
-				}
-
-				}
-
-				if (curBeat % 8 == 4 && FlxG.random.bool(30) && !trainMoving && trainCooldown > 8)
-				{
-					if(FlxG.save.data.distractions){
-						trainCooldown = FlxG.random.int(-4, 0);
-						trainStart();
-					}
-				}
-
-				if (curBeat % 8 == 4 && FlxG.random.bool(75) && !raindropsMovin)
-				{
-					add(rain);
-					FlxG.sound.play(Paths.sound('raindrops', 'shard'));
-					new FlxTimer().start(0.3, function(tmr:FlxTimer){
-						rain.y += 60;
-						raindropsMovin = true;
-
-						if (raindropsMovin)
-						tmr.reset(0.3);
-					});
-
-					new FlxTimer().start(2, function(tmr:FlxTimer){
-						remove(rain);
-						raindropsMovin = false;
-					});
-				}
-			}
 		}
 
 		if (isHalloween && FlxG.random.bool(10) && curBeat > lightningStrikeBeat + lightningOffset)
