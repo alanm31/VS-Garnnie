@@ -30,6 +30,7 @@ class DialogueBox extends FlxSpriteGroup
 
 	var portraitLeft:FlxSprite;
 	var portraitRight:FlxSprite;
+	var gfPort:FlxSprite;
 
 	var handSelect:FlxSprite;
 	var bgFade:FlxSprite;
@@ -123,6 +124,15 @@ class DialogueBox extends FlxSpriteGroup
 		portraitRight.scrollFactor.set();
 		add(portraitRight);
 		portraitRight.visible = false;
+
+		gfPort = new FlxSprite(770, 175);
+		gfPort.loadGraphic(Paths.image('ga/gfport','shared'));
+		// gfPort.setGraphicSize(Std.int(gfPort.width * PlayState.daPixelZoom * 0.2));
+		gfPort.updateHitbox();
+		gfPort.scrollFactor.set();
+		add(gfPort);
+		gfPort.visible = false;
+
 		box.animation.play('normalOpen');
 		box.setGraphicSize(Std.int(box.width * PlayState.daPixelZoom * 0.9));
 		box.updateHitbox();
@@ -215,6 +225,7 @@ class DialogueBox extends FlxSpriteGroup
 						bgFade.alpha -= 1 / 5 * 0.7;
 						portraitLeft.visible = false;
 						portraitRight.visible = false;
+						gfPort.visible = false;
 						swagDialogue.alpha -= 1 / 5;
 						dropText.alpha = swagDialogue.alpha;
 					}, 5);
@@ -251,15 +262,24 @@ class DialogueBox extends FlxSpriteGroup
 
 		switch (curCharacter)
 		{
-			case 'dad':
+			case 'ga':
 				portraitRight.visible = false;
+				gfPort.visible = false;
 				if (!portraitLeft.visible)
 				{
 					portraitLeft.visible = true;
 					portraitLeft.animation.play('enter');
 				}
+			case 'gf':
+			portraitRight.visible = false;
+			portraitLeft.visible = false;
+			if (!portraitRight.visible && !portraitLeft.visible)
+			{
+				gfPort.visible = true;
+			}
 			case 'bf':
 				portraitLeft.visible = false;
+				gfPort.visible = false;
 				if (!portraitRight.visible)
 				{
 					portraitRight.visible = true;

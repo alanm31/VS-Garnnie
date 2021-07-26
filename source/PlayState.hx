@@ -1138,35 +1138,42 @@ class PlayState extends MusicBeatState
 	function garIntro(?dialogueBox:DialogueBox):Void
 	{
 		inCutscene = true;
-		var black:FlxSprite = new FlxSprite(-100, -100).makeGraphic(FlxG.width * 2, FlxG.height * 2, FlxColor.BLACK);
+		var black:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('ga/gaintro','shared'));
+		black.screenCenter();
 		add(black);
+		black.cameras = [camHUD];
 
-	new FlxTimer().start(0.3, function(tmr:FlxTimer)
-		{
-			black.alpha -= 0.15;
-			if (black.alpha > 0)
-		    {
-				tmr.reset(0.3);
-			}
-			else
+		new FlxTimer().start(2, function(tmr:FlxTimer)
+        {	    
+			new FlxTimer().start(0.3, function(tmr:FlxTimer)
 			{
-				camHUD.visible = false;
-				dad.playAnim('hello', false);
-		
-				new FlxTimer().start(2, function(tmr:FlxTimer){
-						remove(black);	
-						inCutscene = false;
-						dad.playAnim('idle');
-						camHUD.visible = true;
-						add(dialogueBox);
-				});
-			}
-		});
+				black.alpha -= 0.15;
+				if (black.alpha > 0)
+		    	{
+					tmr.reset(0.3);
+			    }
+				else
+				{
+					camHUD.visible = false;
+					dad.playAnim('hello', false);
+			
+					new FlxTimer().start(2, function(tmr:FlxTimer){
+							remove(black);	
+							inCutscene = false;
+							dad.playAnim('idle');
+							camHUD.visible = true;
+							add(dialogueBox);
+					});
+				}
+				
+		    });
+	    });
 	}
 	function schoolIntro(?dialogueBox:DialogueBox):Void
 	{
 		var black:FlxSprite = new FlxSprite(-100, -100).makeGraphic(FlxG.width * 2, FlxG.height * 2, FlxColor.BLACK);
 		black.scrollFactor.set();
+		black.screenCenter();
 		add(black);
 
 		var red:FlxSprite = new FlxSprite(-100, -100).makeGraphic(FlxG.width * 2, FlxG.height * 2, 0xFFff1b31);
