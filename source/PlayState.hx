@@ -1139,9 +1139,8 @@ class PlayState extends MusicBeatState
 	{
 		inCutscene = true;
 		var black:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('ga/gaintro','shared'));
-		black.screenCenter();
-		add(black);
 		black.cameras = [camHUD];
+		add(black);
 
 		new FlxTimer().start(2, function(tmr:FlxTimer)
         {	    
